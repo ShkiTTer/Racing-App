@@ -1,4 +1,4 @@
-package com.example.racingapp.domain.entity
+package com.example.racingapp.domain.entity.user
 
 import java.util.*
 
@@ -13,5 +13,6 @@ data class Racer(
     val cntRace: Int,
     val cntWin: Int,
     val cntPodium: Int,
+    val teamRole: TeamRole,
     override val role: UserRole = UserRole.RACER
 ): User()

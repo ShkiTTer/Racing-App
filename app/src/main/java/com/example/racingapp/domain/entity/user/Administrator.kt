@@ -1,4 +1,4 @@
-package com.example.racingapp.domain.entity
+package com.example.racingapp.domain.entity.user
 
 data class Administrator(
     override val login: String,
