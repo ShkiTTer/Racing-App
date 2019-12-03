@@ -6,4 +6,8 @@ data class Team(
     val title: String,
     val country: String,
     val manager: Manager
-)
+) {
+    override fun toString(): String {
+        return title
+    }
+}

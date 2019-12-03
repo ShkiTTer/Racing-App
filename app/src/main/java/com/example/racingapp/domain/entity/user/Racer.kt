@@ -2,9 +2,9 @@ package com.example.racingapp.domain.entity.user
 
 import java.util.*
 
-data class Racer(
-    override val login: String,
-    override val password: String,
+class Racer(
+    login: String,
+    password: String,
     val name: String,
     val secondName: String,
     val country: String,
@@ -15,4 +15,8 @@ data class Racer(
     val cntPodium: Int,
     val teamRole: TeamRole,
     override val role: UserRole = UserRole.RACER
-): User()
+): User(login, password) {
+    override fun toString(): String {
+        return "${this.name} ${this.secondName}"
+    }
+}
