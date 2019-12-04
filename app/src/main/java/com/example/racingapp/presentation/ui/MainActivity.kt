@@ -1,7 +1,9 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import com.example.racingapp.R
 import com.example.racingapp.databinding.ActivityMainBinding
@@ -20,6 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             lifecycleOwner = this@MainActivity
+            spRole.adapter = ArrayAdapter<String>(this@MainActivity, R.layout.item_spinner, resources.getStringArray(R.array.roles))
+        }
+
+        binding.tvReg.setOnClickListener {
+            val intent = Intent(this, RegistrationActivity::class.java)
+            startActivity(intent)
         }
     }
 }
