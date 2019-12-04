@@ -23,48 +23,35 @@
             app:srcCompat="@drawable/logo" />
 
         <EditText
-            android:id="@+id/etLoign"
+            android:id="@+id/etLogin"
+            style="@style/BaseInputField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="48dp"
-            android:background="@drawable/round_view"
-            android:backgroundTint="@color/colorPrimaryLight"
             android:drawableStart="@drawable/ic_man"
-            android:drawablePadding="24dp"
-            android:ems="10"
             android:hint="@string/hint_login"
-            android:inputType="textPersonName"
-            android:singleLine="true"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:autofillHints="" />
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/etPassword"
+            style="@style/BaseInputField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="48dp"
-            android:background="@drawable/round_view"
-            android:backgroundTint="@color/colorPrimaryLight"
             android:drawableStart="@drawable/ic_password"
-            android:drawablePadding="24dp"
-            android:ems="10"
             android:hint="@string/hint_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:singleLine="true"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etLoign" />
+            app:layout_constraintTop_toBottomOf="@+id/etLogin" />
 
         <View
             android:layout_width="0dp"
@@ -91,16 +78,13 @@
 
         <Button
             android:id="@+id/btnSignIn"
+            style="@style/ColoredButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/round_view"
             android:text="@string/btn_sign_in"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
-            android:textColor="@color/colorText"
-            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tvReg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

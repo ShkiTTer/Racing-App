@@ -12,4 +12,25 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="ColoredButton">
+        <item name="android:background">@drawable/round_view</item>
+        <item name="android:textAppearance">
+            @style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem
+        </item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BaseInputField">
+        <item name="android:background">@drawable/round_view</item>
+        <item name="android:backgroundTint">@color/colorPrimaryLight</item>
+        <item name="android:drawablePadding">24dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:importantForAutofill">no</item>
+    </style>
+
 </resources>
