@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Racing App</string>
+    <string name="btn_sign_in">Sign In</string>
+    <string name="btn_registration">Регистрация</string>
+    <string name="btn_skip">Пропустить</string>
+    <string name="hint_login">Login</string>
+    <string name="hint_password">Password</string>
+    <string name="logo">logo</string>
 </resources>
