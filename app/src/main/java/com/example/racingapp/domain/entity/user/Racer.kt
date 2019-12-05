@@ -1,7 +1,9 @@
 package com.example.racingapp.domain.entity.user
 
+import androidx.room.Entity
 import java.util.*
 
+@Entity
 class Racer(
     login: String,
     password: String,
@@ -14,6 +16,7 @@ class Racer(
     val cntWin: Int,
     val cntPodium: Int,
     val teamRole: TeamRole,
+    val teamId: Int,
     override val role: UserRole = UserRole.RACER
 ): User(login, password) {
     override fun toString(): String {
