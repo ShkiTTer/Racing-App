@@ -5,6 +5,8 @@ import androidx.room.Junction
 import androidx.room.Relation
 import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.result.RacerResult
+import com.example.racingapp.domain.entity.result.TeamResult
 
 data class ChampionShipAllData(
     @Embedded
@@ -20,5 +22,12 @@ data class ChampionShipAllData(
         entityColumn = "raceId",
         associateBy = Junction(ChampionShipRaceCross::class)
     )
-    val races: List<Race>
+    val races: List<Race>,
+    @Relation(
+        parentColumn = "championShipId",
+        entityColumn = "teamResultId",
+        associateBy = Junction(ChampionShipTeamResultJoin::class)
+    )
+    val teamResult: List<TeamResult>,
+    val racerResult: List<RacerResult>
 )

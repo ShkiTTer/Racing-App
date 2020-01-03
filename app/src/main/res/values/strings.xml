@@ -10,10 +10,7 @@
     <string name="hint_confirm_password">Подтверждение</string>
     <string name="btn_sign_up">Зарегистрироваться</string>
     <string name="btn_back">Назад</string>
-
-    <string-array name="roles">
-        <item>Менеджер</item>
-        <item>Гонщик</item>
-        <item>Организатор</item>
-    </string-array>
+    <string name="dialog_select_role_title">Выбор роли пользователя</string>
+    <string name="dialog_negative_btn">Cancel</string>
+    <string name="dialog_positive_btn">OK</string>
 </resources>

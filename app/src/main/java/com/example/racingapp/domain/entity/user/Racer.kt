@@ -5,18 +5,18 @@ import java.util.*
 
 @Entity
 class Racer(
-    login: String,
-    password: String,
-    val name: String,
-    val secondName: String,
-    val country: String,
-    val birthday: Date,
-    val rating: Double,
-    val cntRace: Int,
-    val cntWin: Int,
-    val cntPodium: Int,
-    val teamRole: TeamRole,
-    val teamId: Int,
+    login: String = "",
+    password: String = "",
+    var name: String = "",
+    var secondName: String = "",
+    var country: String = "",
+    var birthday: Date? = null,
+    var rating: Double = .0,
+    var cntRace: Int = 0,
+    var cntWin: Int = 0,
+    var cntPodium: Int = 0,
+    var teamRole: TeamRole = TeamRole.FIRST,
+    var teamId: Int,
     override val role: UserRole = UserRole.RACER
 ): User(login, password) {
     override fun toString(): String {

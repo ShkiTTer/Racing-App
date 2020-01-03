@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 abstract class User(
-    val login: String,
-    val password: String,
+    var login: String = "",
+    var password: String = "",
     @PrimaryKey(autoGenerate = true) val userId: Int = 0
 ) {
     abstract val role: UserRole

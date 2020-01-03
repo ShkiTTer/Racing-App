@@ -4,6 +4,8 @@ import android.app.Application
 import com.example.racingapp.data.repository.DbRepository
 import com.example.racingapp.domain.repository.IDbRepository
 import com.example.racingapp.presentation.viewmodel.LoginViewModel
+import com.example.racingapp.presentation.viewmodel.MainViewModel
+import com.example.racingapp.presentation.viewmodel.RegistrationViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -14,6 +16,8 @@ class RacingApp: Application() {
         single { DbRepository() as IDbRepository }
 
         viewModel { LoginViewModel() }
+        viewModel { RegistrationViewModel() }
+        viewModel { MainViewModel() }
     }
 
     override fun onCreate() {
