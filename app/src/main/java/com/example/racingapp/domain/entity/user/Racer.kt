@@ -17,7 +17,7 @@ class Racer(
     var cntWin: Int = 0,
     var cntPodium: Int = 0,
     var teamRole: TeamRole = TeamRole.FIRST,
-    var team: Team,
+    var team: Team? = null,
     override val role: UserRole = UserRole.RACER
 ): User(login, password) {
     override fun toString(): String {
