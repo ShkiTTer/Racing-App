@@ -13,4 +13,9 @@
     <string name="dialog_select_role_title">Выбор роли пользователя</string>
     <string name="dialog_negative_btn">Cancel</string>
     <string name="dialog_positive_btn">OK</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_tournaments">Tournaments</string>
+    <string name="menu_racers">Racers</string>
+    <string name="menu_requests">Requests</string>
 </resources>

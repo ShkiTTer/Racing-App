@@ -18,12 +18,12 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel.userRole.value = intent.getSerializableExtra(Constants.EXTRA_ROLE) as UserRole
-        println(viewModel.userRole.value)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_registration)
 
         binding.apply {
             lifecycleOwner = this@RegistrationActivity
+            userRole = viewModel.userRole
         }
 
         binding.tvBack.setOnClickListener {

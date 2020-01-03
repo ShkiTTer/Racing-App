@@ -1,6 +1,7 @@
 package com.example.racingapp.domain.entity.user
 
 import androidx.room.Entity
+import com.example.racingapp.domain.entity.Team
 import java.util.*
 
 @Entity
@@ -16,7 +17,7 @@ class Racer(
     var cntWin: Int = 0,
     var cntPodium: Int = 0,
     var teamRole: TeamRole = TeamRole.FIRST,
-    var teamId: Int,
+    var team: Team,
     override val role: UserRole = UserRole.RACER
 ): User(login, password) {
     override fun toString(): String {

@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.ui.RegistrationActivity">
 
-    <data></data>
+    <data>
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="android.view.View"/>
+        <import type="com.example.racingapp.domain.entity.user.UserRole"/>
+
+        <variable
+            name="userRole"
+            type="LiveData&lt;UserRole>" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -80,7 +88,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/spTeam"
             app:layout_constraintEnd_toEndOf="@+id/spTeam"
             app:layout_constraintStart_toStartOf="@+id/spTeam"
-            app:layout_constraintTop_toTopOf="@+id/spTeam" />
+            app:layout_constraintTop_toTopOf="@+id/spTeam"
+            android:visibility="@{userRole != UserRole.ADMINISTRATOR ? View.VISIBLE : View.GONE}"/>
 
         <Spinner
             android:id="@+id/spTeam"
@@ -93,7 +102,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword"
-            tools:listitem="@layout/item_spinner" />
+            tools:listitem="@layout/item_spinner"
+            android:visibility="@{userRole != UserRole.ADMINISTRATOR ? View.VISIBLE : View.GONE}"/>
 
         <Button
             android:id="@+id/btnSignUp"
