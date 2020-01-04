@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.racingapp.AllData
 import com.example.racingapp.R
+import com.example.racingapp.databinding.ActivityMainBinding
 import com.example.racingapp.domain.entity.user.UserRole
 import com.example.racingapp.presentation.adapter.TournamentAdapter
 import com.example.racingapp.presentation.viewmodel.MainViewModel
@@ -15,6 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModel<MainViewModel>()
     private val adapter = TournamentAdapter()
 
@@ -22,8 +25,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel.user.value = AllData.currentUser
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(bottomAppBar)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.apply {
+            lifecycleOwner = this@MainActivity
+            setSupportActionBar(bottomAppBar)
+            user = viewModel.user
+        }
 
         setupList()
     }

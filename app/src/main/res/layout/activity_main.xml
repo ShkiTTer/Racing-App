@@ -4,7 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.ui.MainActivity">
 
-    <data></data>
+    <data>
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="com.example.racingapp.domain.entity.user.User"/>
+        <import type="com.example.racingapp.domain.entity.user.UserRole"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="user"
+            type="LiveData&lt;User>" />
+    </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
@@ -46,7 +55,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
-            android:visibility="visible"
+            android:visibility="@{user.role == UserRole.ADMINISTRATOR ? View.VISIBLE : View.GONE}"
             app:fabSize="normal"
             app:layout_anchor="@id/bottomAppBar"
             app:maxImageSize="36dp"
