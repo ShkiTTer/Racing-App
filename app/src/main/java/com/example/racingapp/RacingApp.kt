@@ -39,7 +39,7 @@ class RacingApp : Application() {
         }
 
         AllData.users.add(Administrator("root", "root"))
-        AllData.teams.add(Team("Racing Point", "India"))
+        AllData.teams.add(Team("Racing Point", "India", listOf()))
         AllData.users.add(Manager("manager1", "manager", team = AllData.teams[0]))
         AllData.tournaments.add(
             Tournament(
@@ -51,14 +51,12 @@ class RacingApp : Application() {
                     Race(
                         "Гран-при России",
                         "Россия",
-                        Track("Сочи", "Россия", 321, R.drawable.ic_add),
+                        Track("Сочи", "Россия", 321),
                         54,
                         listOf(),
                         listOf()
                     )
-                ),
-                listOf(),
-                listOf()
+                )
             )
         )
     }

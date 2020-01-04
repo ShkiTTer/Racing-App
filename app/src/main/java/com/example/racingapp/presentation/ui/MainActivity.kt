@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             setSupportActionBar(bottomAppBar)
             user = viewModel.user
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         setupList()
     }
@@ -54,6 +58,15 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.actionLogout -> finish()
+            R.id.actionTeams -> {
+                val intent = Intent(this, TeamListActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.actionTracks -> {
+                val intent = Intent(this, TrackListActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.actionTournaments -> {}
             else -> return super.onOptionsItemSelected(item)
         }
 
@@ -65,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         adapter.setItems(AllData.tournaments)
         adapter.setListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
+                println("Click")
                 val intent = Intent(this@MainActivity, TournamentActivity::class.java)
                 AllData.currentTournament = AllData.tournaments[position]
                 startActivity(intent)
