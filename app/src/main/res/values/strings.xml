@@ -18,4 +18,7 @@
     <string name="menu_tournaments">Tournaments</string>
     <string name="menu_racers">Racers</string>
     <string name="menu_requests">Requests</string>
+
+    <string name="championship_state_begin">Начат</string>
+    <string name="championship_state_ended">Завершен</string>
 </resources>

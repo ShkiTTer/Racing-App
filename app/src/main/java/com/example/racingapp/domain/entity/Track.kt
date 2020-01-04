@@ -1,10 +1,10 @@
 package com.example.racingapp.domain.entity
 
-import androidx.room.Entity
+import androidx.annotation.DrawableRes
 
-@Entity
 data class Track(
     val title: String,
     val country: String,
-    val length: Int // In meters
+    val length: Int, // In meters
+    @DrawableRes val scheme: Int
 )

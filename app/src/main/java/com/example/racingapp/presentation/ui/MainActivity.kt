@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import com.example.racingapp.AllData
 import com.example.racingapp.R
 import com.example.racingapp.domain.entity.user.UserRole
+import com.example.racingapp.presentation.adapter.TournamentAdapter
 import com.example.racingapp.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -15,6 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<MainViewModel>()
+    private val adapter = TournamentAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.user.value = AllData.currentUser
         setContentView(R.layout.activity_main)
         setSupportActionBar(bottomAppBar)
+
+        setupList()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,5 +48,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         return true
+    }
+
+    private fun setupList() {
+        rvChampionShip.adapter = adapter
+        adapter.setItems(AllData.tournaments)
     }
 }

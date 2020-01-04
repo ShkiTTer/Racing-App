@@ -1,15 +1,18 @@
 package com.example.racingapp.domain.entity.championship
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.example.racingapp.domain.entity.Race
+import com.example.racingapp.domain.entity.result.RacerResult
+import com.example.racingapp.domain.entity.result.TeamResult
 
-@Entity
 data class ChampionShip(
     val title: String,
     val country: String,
     val type: ChampionShipType,
-    val teamResultId: Int,
-    val racerResultId: Int,
-    @PrimaryKey(autoGenerate = true)
-    val championShipId: Int
+    var state: ChampionShipState,
+    val races: List<Race>,
+    val teamResults: List<TeamResult>,
+    val racerResults: List<RacerResult>
 )
+{
+    override fun toString(): String = title
+}

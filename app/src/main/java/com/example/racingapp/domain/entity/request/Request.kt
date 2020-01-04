@@ -1,10 +1,10 @@
 package com.example.racingapp.domain.entity.request
 
-import androidx.room.Entity
+import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.championship.ChampionShip
 
-@Entity
 data class Request(
-    val teamId: Int,
-    val championShipId: Int,
+    val team: Team,
+    val championShip: ChampionShip,
     val state: RequestState
 )
