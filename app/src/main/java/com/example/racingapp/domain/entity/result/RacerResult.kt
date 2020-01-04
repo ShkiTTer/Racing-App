@@ -4,5 +4,5 @@ class RacerResult(
     title: String,
     place: Int,
     points: Int,
-    val time: Int
+    val time: String
 ) : Result(title, place, points)
