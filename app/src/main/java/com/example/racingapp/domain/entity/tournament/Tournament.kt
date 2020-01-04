@@ -10,10 +10,5 @@ data class Tournament(
     val type: TournamentType,
     var state: TournamentState,
     val teams: List<Team>,
-    val races: List<Race>,
-    val teamResults: List<TeamResult>,
-    val racerResults: List<RacerResult>
+    val races: List<Race>
 )
-{
-    override fun toString(): String = title
-}

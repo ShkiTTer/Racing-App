@@ -31,5 +31,15 @@ class TournamentActivity : AppCompatActivity() {
             val intent = Intent(this, RaceListActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnTeams.setOnClickListener {
+            val intent = Intent(this, TeamListActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onDestroy() {
+        AllData.currentTournament = null
+        super.onDestroy()
     }
 }
