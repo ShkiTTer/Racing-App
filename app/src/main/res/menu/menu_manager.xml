@@ -15,10 +15,15 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/actionRacers"
-        android:icon="@drawable/ic_racer"
-        android:title="@string/menu_racers"
+        android:id="@+id/actionTeams"
+        android:icon="@drawable/ic_team"
+        android:title="@string/menu_teams"
         app:showAsAction="always" />
+
+    <item android:id="@+id/actionTracks"
+        android:icon="@drawable/ic_track"
+        android:title="@string/menu_track"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/actionProfile"
