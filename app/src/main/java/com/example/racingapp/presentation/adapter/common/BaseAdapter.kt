@@ -1,9 +1,6 @@
-package com.example.racingapp.presentation.adapter
+package com.example.racingapp.presentation.adapter.common
 
-import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
-import com.example.racingapp.presentation.adapter.common.OnItemClickListener
-import com.example.racingapp.presentation.adapter.common.ViewHolder
 
 abstract class BaseAdapter<T, VH : ViewHolder<T>> :
     RecyclerView.Adapter<VH>() {

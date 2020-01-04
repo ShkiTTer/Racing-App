@@ -1,5 +1,6 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -24,6 +25,11 @@ class TournamentActivity : AppCompatActivity() {
             lifecycleOwner = this@TournamentActivity
             user = viewModel.user
             tournament = viewModel.tournament
+        }
+
+        binding.btnRaces.setOnClickListener {
+            val intent = Intent(this, RaceListActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -2,7 +2,9 @@ package com.example.racingapp
 
 import android.app.Application
 import com.example.racingapp.data.repository.DbRepository
+import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.Track
 import com.example.racingapp.domain.entity.tournament.Tournament
 import com.example.racingapp.domain.entity.tournament.TournamentState
 import com.example.racingapp.domain.entity.tournament.TournamentType
@@ -39,6 +41,25 @@ class RacingApp : Application() {
         AllData.users.add(Administrator("root", "root"))
         AllData.teams.add(Team("Racing Point", "India"))
         AllData.users.add(Manager("manager1", "manager", team = AllData.teams[0]))
-        AllData.tournaments.add(Tournament("Season 2019", TournamentType.FORMULA1, TournamentState.BEGIN, AllData.teams, listOf(), listOf(), listOf()))
+        AllData.tournaments.add(
+            Tournament(
+                "Season 2019",
+                TournamentType.FORMULA1,
+                TournamentState.BEGIN,
+                AllData.teams,
+                listOf(
+                    Race(
+                        "Гран-при России",
+                        "Россия",
+                        Track("Сочи", "Россия", 321, R.drawable.ic_add),
+                        54,
+                        listOf(),
+                        listOf()
+                    )
+                ),
+                listOf(),
+                listOf()
+            )
+        )
     }
 }
