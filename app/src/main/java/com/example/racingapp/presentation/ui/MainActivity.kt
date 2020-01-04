@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, TrackListActivity::class.java)
                 startActivity(intent)
             }
-            R.id.actionTournaments -> {}
             else -> return super.onOptionsItemSelected(item)
         }
 

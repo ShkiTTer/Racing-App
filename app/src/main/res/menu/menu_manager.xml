@@ -9,12 +9,6 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/actionTournaments"
-        android:icon="@drawable/ic_tournament"
-        android:title="@string/menu_tournaments"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/actionTeams"
         android:icon="@drawable/ic_team"
         android:title="@string/menu_teams"

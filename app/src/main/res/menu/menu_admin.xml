@@ -17,11 +17,6 @@
         android:title="@string/menu_teams"
         app:showAsAction="always"/>
 
-    <item android:id="@+id/actionTournaments"
-        android:icon="@drawable/ic_tournament"
-        android:title="@string/menu_tournaments"
-        app:showAsAction="always"/>
-
     <item android:id="@+id/actionRequests"
         android:icon="@drawable/ic_request"
         android:title="@string/menu_requests"
