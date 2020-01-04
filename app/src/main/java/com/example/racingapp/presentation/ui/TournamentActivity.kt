@@ -36,6 +36,16 @@ class TournamentActivity : AppCompatActivity() {
             val intent = Intent(this, TeamListActivity::class.java)
             startActivity(intent)
         }
+
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, AddEditTournamentActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.tournament.value = AllData.currentTournament
     }
 
     override fun onDestroy() {

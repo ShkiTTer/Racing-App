@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
             setSupportActionBar(bottomAppBar)
             user = viewModel.user
         }
+
+        binding.fabAdd.setOnClickListener {
+            val intent = Intent(this, AddEditTournamentActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {

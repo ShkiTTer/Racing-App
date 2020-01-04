@@ -12,6 +12,12 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
     <style name="ColoredButton">
         <item name="android:background">@drawable/round_view</item>
         <item name="android:textAppearance">

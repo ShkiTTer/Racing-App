@@ -26,4 +26,6 @@
     <string name="btn_teams">Команды</string>
     <string name="btn_team_results">Результаты команд</string>
     <string name="btn_racer_results">Результаты гонщиков</string>
+    <string name="title_hint">Название</string>
+    <string name="btn_save">Сохранить</string>
 </resources>

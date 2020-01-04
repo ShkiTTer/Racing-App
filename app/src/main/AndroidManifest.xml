@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.ui.TrackListActivity"></activity>
+        <activity android:name=".presentation.ui.AddEditTournamentActivity" android:theme="@style/ActionBar"/>
+        <activity android:name=".presentation.ui.TrackListActivity" />
         <activity android:name=".presentation.ui.RacerResultActivity" />
         <activity android:name=".presentation.ui.TeamResultActivity" />
         <activity android:name=".presentation.ui.TeamListActivity" />

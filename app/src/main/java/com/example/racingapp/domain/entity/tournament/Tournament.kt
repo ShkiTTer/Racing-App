@@ -6,8 +6,8 @@ import com.example.racingapp.domain.entity.result.RacerResult
 import com.example.racingapp.domain.entity.result.TeamResult
 
 data class Tournament(
-    val title: String,
-    val type: TournamentType,
+    var title: String,
+    var type: TournamentType,
     var state: TournamentState,
     val teams: List<Team>,
     val races: List<Race>
