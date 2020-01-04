@@ -3,15 +3,16 @@ package com.example.racingapp
 import android.app.Application
 import com.example.racingapp.data.repository.DbRepository
 import com.example.racingapp.domain.entity.Team
-import com.example.racingapp.domain.entity.championship.ChampionShip
-import com.example.racingapp.domain.entity.championship.ChampionShipState
-import com.example.racingapp.domain.entity.championship.ChampionShipType
+import com.example.racingapp.domain.entity.tournament.Tournament
+import com.example.racingapp.domain.entity.tournament.TournamentState
+import com.example.racingapp.domain.entity.tournament.TournamentType
 import com.example.racingapp.domain.entity.user.Administrator
 import com.example.racingapp.domain.entity.user.Manager
 import com.example.racingapp.domain.repository.IDbRepository
 import com.example.racingapp.presentation.viewmodel.LoginViewModel
 import com.example.racingapp.presentation.viewmodel.MainViewModel
 import com.example.racingapp.presentation.viewmodel.RegistrationViewModel
+import com.example.racingapp.presentation.viewmodel.TournamentViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -24,6 +25,7 @@ class RacingApp : Application() {
         viewModel { LoginViewModel() }
         viewModel { RegistrationViewModel() }
         viewModel { MainViewModel() }
+        viewModel { TournamentViewModel() }
     }
 
     override fun onCreate() {
@@ -37,6 +39,6 @@ class RacingApp : Application() {
         AllData.users.add(Administrator("root", "root"))
         AllData.teams.add(Team("Racing Point", "India"))
         AllData.users.add(Manager("manager1", "manager", team = AllData.teams[0]))
-        AllData.tournaments.add(ChampionShip("Season 2019", ChampionShipType.FORMULA1, ChampionShipState.BEGIN, AllData.teams, listOf(), listOf(), listOf()))
+        AllData.tournaments.add(Tournament("Season 2019", TournamentType.FORMULA1, TournamentState.BEGIN, AllData.teams, listOf(), listOf(), listOf()))
     }
 }

@@ -21,4 +21,8 @@
 
     <string name="championship_state_begin">Начат</string>
     <string name="championship_state_ended">Завершен</string>
+    <string name="btn_races">Гонки</string>
+    <string name="btn_teams">Команды</string>
+    <string name="btn_team_results">Результаты команд</string>
+    <string name="btn_racer_results">Результаты гонщиков</string>
 </resources>

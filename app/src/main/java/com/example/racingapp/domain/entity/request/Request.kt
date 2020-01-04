@@ -1,10 +1,10 @@
 package com.example.racingapp.domain.entity.request
 
 import com.example.racingapp.domain.entity.Team
-import com.example.racingapp.domain.entity.championship.ChampionShip
+import com.example.racingapp.domain.entity.tournament.Tournament
 
 data class Request(
     val team: Team,
-    val championShip: ChampionShip,
+    val tournament: Tournament,
     val state: RequestState
 )

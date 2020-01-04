@@ -1,5 +1,6 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +12,7 @@ import com.example.racingapp.R
 import com.example.racingapp.databinding.ActivityMainBinding
 import com.example.racingapp.domain.entity.user.UserRole
 import com.example.racingapp.presentation.adapter.TournamentAdapter
+import com.example.racingapp.presentation.adapter.common.OnItemClickListener
 import com.example.racingapp.presentation.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -61,5 +63,12 @@ class MainActivity : AppCompatActivity() {
     private fun setupList() {
         rvChampionShip.adapter = adapter
         adapter.setItems(AllData.tournaments)
+        adapter.setListener(object : OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val intent = Intent(this@MainActivity, TournamentActivity::class.java)
+                AllData.currentTournament = AllData.tournaments[position]
+                startActivity(intent)
+            }
+        })
     }
 }

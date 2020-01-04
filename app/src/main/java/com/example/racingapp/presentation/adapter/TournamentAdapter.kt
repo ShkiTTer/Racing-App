@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.racingapp.R
-import com.example.racingapp.domain.entity.championship.ChampionShip
-import com.example.racingapp.domain.entity.championship.ChampionShipState
+import com.example.racingapp.domain.entity.tournament.Tournament
+import com.example.racingapp.domain.entity.tournament.TournamentState
 import com.example.racingapp.presentation.adapter.common.ViewHolder
 import kotlinx.android.synthetic.main.item_championship.view.*
 
 class TournamentAdapter :
-    BaseAdapter<ChampionShip, TournamentAdapter.TournamentViewHolder>() {
+    BaseAdapter<Tournament, TournamentAdapter.TournamentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TournamentViewHolder =
         TournamentViewHolder(
@@ -21,7 +21,7 @@ class TournamentAdapter :
             )
         )
 
-    class TournamentViewHolder(v: View) : ViewHolder<ChampionShip>(v) {
+    class TournamentViewHolder(v: View) : ViewHolder<Tournament>(v) {
         private val title = v.tvTitle
         private val status = v.tvStatus
 
@@ -31,10 +31,10 @@ class TournamentAdapter :
             }
         }
 
-        override fun bind(item: ChampionShip) {
+        override fun bind(item: Tournament) {
             title.text = item.title
             status.setText(
-                if (item.state == ChampionShipState.BEGIN)
+                if (item.state == TournamentState.BEGIN)
                     R.string.championship_state_begin
                 else R.string.championship_state_ended
             )
