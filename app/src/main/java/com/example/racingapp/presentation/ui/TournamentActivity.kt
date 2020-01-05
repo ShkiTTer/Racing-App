@@ -37,6 +37,16 @@ class TournamentActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnRacerResults.setOnClickListener {
+            val intent = Intent(this, RacerResultActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnTeamResults.setOnClickListener {
+            val intent = Intent(this, TeamResultActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.fab.setOnClickListener {
             val intent = Intent(this, AddEditTournamentActivity::class.java)
             startActivity(intent)

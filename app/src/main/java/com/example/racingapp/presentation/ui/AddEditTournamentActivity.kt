@@ -26,7 +26,7 @@ class AddEditTournamentActivity : AppCompatActivity() {
             val state = spState.selectedItem as TournamentState
 
             if (tournament == null) {
-                AllData.tournaments.add(Tournament(title, type, state, listOf(), listOf()))
+                AllData.tournaments.add(Tournament(title, type, state))
             }
             else tournament.apply {
                 this.title = title

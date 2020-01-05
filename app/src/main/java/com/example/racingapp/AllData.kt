@@ -1,5 +1,6 @@
 package com.example.racingapp
 
+import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.Track
 import com.example.racingapp.domain.entity.tournament.Tournament
@@ -11,6 +12,7 @@ object AllData {
     var currentUser: User? = null
     val teams = mutableListOf<Team>()
     val racers = mutableListOf<Racer>()
+    var currentRace: Race? = null
     val tournaments = mutableListOf<Tournament>()
     var currentTournament: Tournament? = null
     val tracks = mutableListOf<Track>()

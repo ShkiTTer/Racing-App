@@ -28,4 +28,5 @@
     <string name="btn_racer_results">Результаты гонщиков</string>
     <string name="title_hint">Название</string>
     <string name="btn_save">Сохранить</string>
+    <string name="laps_hint">Кол-во кругов</string>
 </resources>

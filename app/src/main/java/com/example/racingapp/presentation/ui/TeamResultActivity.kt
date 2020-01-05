@@ -20,6 +20,7 @@ class TeamResultActivity : AppCompatActivity() {
         binding.apply {
             lifecycleOwner = this@TeamResultActivity
             user = AllData.currentUser
+            race = AllData.currentRace
         }
 
         setupList()

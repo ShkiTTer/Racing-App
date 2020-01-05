@@ -7,11 +7,16 @@
     <data>
         <import type="com.example.racingapp.domain.entity.user.UserRole" />
         <import type="com.example.racingapp.domain.entity.user.User" />
+        <import type="com.example.racingapp.domain.entity.Race"/>
         <import type="android.view.View" />
 
         <variable
             name="user"
             type="User" />
+
+        <variable
+            name="race"
+            type="Race" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,6 +46,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="36dp"
             app:srcCompat="@drawable/ic_add"
-            android:visibility="@{user.role == UserRole.ADMINISTRATOR ? View.VISIBLE : View.GONE}"/>
+            android:visibility="@{user.role == UserRole.ADMINISTRATOR &amp;&amp; race != null ? View.VISIBLE : View.GONE}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

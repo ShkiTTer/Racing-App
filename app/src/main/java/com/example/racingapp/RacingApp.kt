@@ -47,14 +47,13 @@ class RacingApp : Application() {
                 TournamentType.FORMULA2,
                 TournamentState.BEGIN,
                 AllData.teams,
-                listOf(
+                mutableListOf(
                     Race(
                         "Гран-при России",
-                        "Россия",
                         Track("Сочи", "Россия", 321),
                         54,
-                        listOf(),
-                        listOf()
+                        mutableListOf(),
+                        mutableListOf()
                     )
                 )
             )

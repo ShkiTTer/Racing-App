@@ -21,6 +21,7 @@ class RacerResultActivity : AppCompatActivity() {
         binding.apply {
             lifecycleOwner = this@RacerResultActivity
             user = AllData.currentUser
+            race = AllData.currentRace
         }
 
         setupList()

@@ -5,10 +5,25 @@ import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.result.RacerResult
 import com.example.racingapp.domain.entity.result.TeamResult
 
-data class Tournament(
+class Tournament(
     var title: String,
     var type: TournamentType,
-    var state: TournamentState,
-    val teams: List<Team>,
+    var state: TournamentState
+) {
+    private val mTeams = mutableListOf<Team>()
+    private val mRaces = mutableListOf<Race>()
+
+    val teams: List<Team>
+        get() = mTeams
+
     val races: List<Race>
-)
+        get() = mRaces
+
+    fun addRace(race: Race) {
+        mRaces.add(race)
+    }
+
+    fun addTeam(team: Team) {
+        mTeams.add(team)
+    }
+}

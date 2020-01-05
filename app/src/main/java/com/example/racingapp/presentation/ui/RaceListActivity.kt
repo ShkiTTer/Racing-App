@@ -1,5 +1,6 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -20,6 +21,11 @@ class RaceListActivity : AppCompatActivity() {
         binding.apply {
             lifecycleOwner = this@RaceListActivity
             user = AllData.currentUser
+        }
+
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, AddEditRaceActivity::class.java)
+            startActivity(intent)
         }
 
         setupList()
