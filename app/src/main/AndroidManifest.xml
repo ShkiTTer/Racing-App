@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.ui.AddEditRaceActivity" android:theme="@style/ActionBar"/>
+        <activity android:name=".presentation.ui.RaceActivity"></activity>
+        <activity
+            android:name=".presentation.ui.AddEditRaceActivity"
+            android:theme="@style/ActionBar" />
         <activity
             android:name=".presentation.ui.AddEditTournamentActivity"
             android:theme="@style/ActionBar" />

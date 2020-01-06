@@ -45,18 +45,10 @@ class RacingApp : Application() {
             Tournament(
                 "Season 2019",
                 TournamentType.FORMULA2,
-                TournamentState.BEGIN,
-                AllData.teams,
-                mutableListOf(
-                    Race(
-                        "Гран-при России",
-                        Track("Сочи", "Россия", 321),
-                        54,
-                        mutableListOf(),
-                        mutableListOf()
-                    )
-                )
+                TournamentState.BEGIN
             )
         )
+        AllData.tournaments[0].addTeam(AllData.teams[0])
+        AllData.tournaments[0].addRace(Race("Гран-при Германии", Track("Нюрбургринг", "Германия", 2567), 58))
     }
 }

@@ -36,7 +36,9 @@ class RaceListActivity : AppCompatActivity() {
         adapter.setItems(AllData.currentTournament!!.races)
         adapter.setListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
-
+                AllData.currentRace = AllData.currentTournament?.races?.get(position)
+                val intent = Intent(this@RaceListActivity, RaceActivity::class.java)
+                startActivity(intent)
             }
         })
     }
