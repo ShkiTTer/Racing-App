@@ -10,7 +10,6 @@ class Racer(
     var secondName: String = "",
     var country: String = "",
     var birthday: Date? = null,
-    var rating: Double = .0,
     var cntRace: Int = 0,
     var cntWin: Int = 0,
     var cntPodium: Int = 0,

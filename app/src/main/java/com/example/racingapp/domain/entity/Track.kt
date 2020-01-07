@@ -1,9 +1,9 @@
 package com.example.racingapp.domain.entity
 
 data class Track(
-    val title: String,
-    val country: String,
-    val length: Int // In meters
+    var title: String,
+    var country: String,
+    var length: Int // In meters
 ) {
     override fun toString(): String {
         return "$title - $country"

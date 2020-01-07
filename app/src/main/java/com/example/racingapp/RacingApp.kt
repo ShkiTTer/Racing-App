@@ -49,6 +49,7 @@ class RacingApp : Application() {
             )
         )
         AllData.tournaments[0].addTeam(AllData.teams[0])
-        AllData.tournaments[0].addRace(Race("Гран-при Германии", Track("Нюрбургринг", "Германия", 2567), 58))
+        AllData.tracks.add(Track("Нюрбургринг", "Германия", 2567))
+        AllData.tournaments[0].addRace(Race("Гран-при Германии", AllData.tracks[0], 58))
     }
 }

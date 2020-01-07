@@ -1,5 +1,6 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -25,6 +26,14 @@ class TeamListActivity : AppCompatActivity() {
             user = AllData.currentUser
         }
 
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, AddEditTeamActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
         setupList()
     }
 
@@ -33,7 +42,10 @@ class TeamListActivity : AppCompatActivity() {
         adapter.setItems(AllData.currentTournament?.teams ?: AllData.teams)
         adapter.setListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
+                AllData.currentTeam = AllData.teams[position]
 
+                val intent = Intent(this@TeamListActivity, TeamActivity::class.java)
+                startActivity(intent)
             }
         })
     }

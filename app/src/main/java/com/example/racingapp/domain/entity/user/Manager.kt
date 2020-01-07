@@ -7,6 +7,11 @@ class Manager(
     password: String = "",
     var name: String = "",
     var secondName: String = "",
-    var team: Team? = null,
+    var team: Team,
     override val role: UserRole = UserRole.MANAGER
-) : User(login, password)
+) : User(login, password) {
+
+    override fun toString(): String {
+        return "$secondName $name"
+    }
+}

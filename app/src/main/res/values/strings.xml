@@ -29,4 +29,7 @@
     <string name="title_hint">Название</string>
     <string name="btn_save">Сохранить</string>
     <string name="laps_hint">Кол-во кругов</string>
+    <string name="length_hint">Протяженность</string>
+    <string name="country_hint">Страна</string>
+    <string name="btn_new_racer">Новый гонщик</string>
 </resources>

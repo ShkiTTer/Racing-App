@@ -11,9 +11,13 @@ object AllData {
     val users = mutableListOf<User>()
     var currentUser: User? = null
     val teams = mutableListOf<Team>()
+    var currentTeam: Team? = null
     val racers = mutableListOf<Racer>()
     var currentRace: Race? = null
     val tournaments = mutableListOf<Tournament>()
     var currentTournament: Tournament? = null
     val tracks = mutableListOf<Track>()
+    var currentTrack: Track? = null
+
+    var racerResult = true
 }

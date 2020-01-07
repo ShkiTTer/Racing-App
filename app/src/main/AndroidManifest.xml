@@ -10,7 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.ui.RaceActivity"></activity>
+        <activity android:name=".presentation.ui.TeamActivity"></activity>
+        <activity android:name=".presentation.ui.AddEditTeamActivity" />
+        <activity android:name=".presentation.ui.AddEditTrackActivity" />
+        <activity android:name=".presentation.ui.AddResult" />
+        <activity android:name=".presentation.ui.RaceActivity" />
         <activity
             android:name=".presentation.ui.AddEditRaceActivity"
             android:theme="@style/ActionBar" />
@@ -19,7 +23,7 @@
             android:theme="@style/ActionBar" />
         <activity android:name=".presentation.ui.TrackListActivity" />
         <activity android:name=".presentation.ui.RacerResultActivity" />
-        <activity android:name=".presentation.ui.TeamResultActivity" />
+        <activity android:name=".presentation.ui.ResultActivity" />
         <activity android:name=".presentation.ui.TeamListActivity" />
         <activity android:name=".presentation.ui.RaceListActivity" />
         <activity android:name=".presentation.ui.TournamentActivity" />

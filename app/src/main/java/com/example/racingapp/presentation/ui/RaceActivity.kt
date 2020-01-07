@@ -22,12 +22,14 @@ class RaceActivity : AppCompatActivity() {
         }
 
         binding.btnTeamResults.setOnClickListener {
-            val intent = Intent(this, TeamResultActivity::class.java)
+            AllData.racerResult = false
+            val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
         }
 
         binding.btnRacerResults.setOnClickListener {
-            val intent = Intent(this, RacerResultActivity::class.java)
+            AllData.racerResult = true
+            val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
         }
 

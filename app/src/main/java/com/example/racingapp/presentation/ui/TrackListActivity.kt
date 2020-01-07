@@ -1,7 +1,8 @@
 package com.example.racingapp.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.racingapp.AllData
 import com.example.racingapp.R
@@ -23,6 +24,14 @@ class TrackListActivity : AppCompatActivity() {
             user = AllData.currentUser
         }
 
+        binding.fab.setOnClickListener {
+            val intent = Intent(this@TrackListActivity, AddEditTrackActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
         setupList()
     }
 
@@ -31,7 +40,10 @@ class TrackListActivity : AppCompatActivity() {
         adapter.setItems(AllData.tracks)
         adapter.setListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
+                AllData.currentTrack = AllData.tracks[position]
 
+                val intent = Intent(this@TrackListActivity, AddEditTrackActivity::class.java)
+                startActivity(intent)
             }
         })
     }

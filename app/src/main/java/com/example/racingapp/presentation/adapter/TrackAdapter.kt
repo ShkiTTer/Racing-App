@@ -25,6 +25,12 @@ class TrackAdapter : BaseAdapter<Track, TrackAdapter.TrackViewHolder>() {
         private val country = v.tvCountry
         private val length = v.tvLength
 
+        init {
+            v.setOnClickListener {
+                onItemClickListener?.onItemClick(adapterPosition)
+            }
+        }
+
         override fun bind(item: Track) {
             title.text = item.title
             country.text = item.country

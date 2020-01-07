@@ -1,27 +1,27 @@
 package com.example.racingapp.domain.entity
 
-import com.example.racingapp.domain.entity.result.RacerResult
-import com.example.racingapp.domain.entity.result.TeamResult
+import com.example.racingapp.domain.entity.user.Racer
+import com.example.racingapp.domain.entity.result.Result
 
 class Race(
     var title: String,
     var track: Track,
     var cntLaps: Int
 ) {
-    private val mRacerResults = mutableListOf<RacerResult>()
-    private val mTeamResults = mutableListOf<TeamResult>()
+    private val mRacerResults = mutableListOf<Result<Racer>>()
+    private val mTeamResults = mutableListOf<Result<Team>>()
 
-    val racerResults: List<RacerResult>
+    val racerResults: List<Result<Racer>>
         get() = mRacerResults
 
-    val teamResults: List<TeamResult>
+    val teamResults: List<Result<Team>>
         get() = mTeamResults
 
-    fun addRacerResult(racerResult: RacerResult) {
+    fun addRacerResult(racerResult: Result<Racer>) {
         mRacerResults.add(racerResult)
     }
 
-    fun addTeamResult(teamResult: TeamResult) {
+    fun addTeamResult(teamResult: Result<Team>) {
         mTeamResults.add(teamResult)
     }
 }

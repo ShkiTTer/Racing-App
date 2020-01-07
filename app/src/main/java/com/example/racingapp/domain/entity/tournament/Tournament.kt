@@ -2,8 +2,6 @@ package com.example.racingapp.domain.entity.tournament
 
 import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
-import com.example.racingapp.domain.entity.result.RacerResult
-import com.example.racingapp.domain.entity.result.TeamResult
 
 class Tournament(
     var title: String,
