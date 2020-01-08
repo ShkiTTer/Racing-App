@@ -18,7 +18,7 @@
         <activity android:name=".presentation.ui.TeamActivity" />
         <activity android:name=".presentation.ui.AddEditTeamActivity" />
         <activity android:name=".presentation.ui.AddEditTrackActivity" />
-        <activity android:name=".presentation.ui.AddResult" />
+        <activity android:name=".presentation.ui.AddResultActivity" />
         <activity android:name=".presentation.ui.RaceActivity" />
         <activity
             android:name=".presentation.ui.AddEditRaceActivity"

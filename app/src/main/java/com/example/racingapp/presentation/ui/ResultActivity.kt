@@ -1,6 +1,8 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.racingapp.AllData
@@ -20,13 +22,18 @@ class ResultActivity : AppCompatActivity() {
             lifecycleOwner = this@ResultActivity
             user = AllData.currentUser
             race = AllData.currentRace
+            isRacer = AllData.racerResult
         }
-
-        setupList()
 
         binding.fab.setOnClickListener {
-
+            val intent = Intent(this, AddResultActivity::class.java)
+            startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupList()
     }
 
     private fun setupList() {

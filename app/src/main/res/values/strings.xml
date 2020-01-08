@@ -46,4 +46,7 @@
     <string name="btn_approve">Одобрить</string>
     <string name="btn_cancel">Отклонить</string>
     <string name="tournament_text">Чемпионат</string>
+    <string name="text_racer">Гонщик</string>
+    <string name="hint_place">Место</string>
+    <string name="hint_points">Очки</string>
 </resources>

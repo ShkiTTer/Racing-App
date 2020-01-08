@@ -2,6 +2,7 @@ package com.example.racingapp.domain.entity.tournament
 
 import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.user.Racer
 
 class Tournament(
     title: String,
@@ -30,6 +31,16 @@ class Tournament(
         mTitle = title
         mType = type
         mState = state
+    }
+
+    fun getRacers(): List<Racer> {
+        val racers = mutableListOf<Racer>()
+
+        teams.forEach {
+            racers.addAll(it.racers)
+        }
+
+        return racers
     }
 
     fun addRace(race: Race) {

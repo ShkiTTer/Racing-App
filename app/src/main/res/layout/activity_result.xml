@@ -17,6 +17,10 @@
         <variable
             name="race"
             type="Race" />
+
+        <variable
+            name="isRacer"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,6 +50,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="36dp"
             app:srcCompat="@drawable/ic_add"
-            android:visibility="@{user.role == UserRole.ADMINISTRATOR &amp;&amp; race != null ? View.VISIBLE : View.GONE}"/>
+            android:visibility="@{user.role == UserRole.ADMINISTRATOR &amp;&amp; isRacer &amp;&amp; race != null ? View.VISIBLE : View.GONE}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

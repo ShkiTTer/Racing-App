@@ -36,10 +36,10 @@
         android:layout_height="0dp"
         android:background="@drawable/round_view"
         android:backgroundTint="@color/colorPrimaryLight"
-        app:layout_constraintBottom_toBottomOf="@+id/spTrack"
-        app:layout_constraintEnd_toEndOf="@+id/spTrack"
-        app:layout_constraintStart_toStartOf="@+id/spTrack"
-        app:layout_constraintTop_toTopOf="@+id/spTrack" />
+        app:layout_constraintBottom_toBottomOf="@+id/spTournament"
+        app:layout_constraintEnd_toEndOf="@+id/spTournament"
+        app:layout_constraintStart_toStartOf="@+id/spTournament"
+        app:layout_constraintTop_toTopOf="@+id/spTournament" />
 
     <Spinner
         android:id="@+id/spTournament"

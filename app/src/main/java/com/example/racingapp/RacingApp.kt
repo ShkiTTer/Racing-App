@@ -10,6 +10,7 @@ import com.example.racingapp.domain.entity.tournament.TournamentState
 import com.example.racingapp.domain.entity.tournament.TournamentType
 import com.example.racingapp.domain.entity.user.Administrator
 import com.example.racingapp.domain.entity.user.Manager
+import com.example.racingapp.domain.entity.user.Racer
 import com.example.racingapp.domain.repository.IDbRepository
 import com.example.racingapp.presentation.viewmodel.LoginViewModel
 import com.example.racingapp.presentation.viewmodel.MainViewModel
@@ -18,6 +19,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
+import java.util.*
 
 class RacingApp : Application() {
     private val koinModule = module {
@@ -37,12 +39,18 @@ class RacingApp : Application() {
         }
 
         AllData.users.add(Administrator("root", "root"))
-        AllData.users.add(Manager("manager1", "manager", "Иван", "Иванов", null))
-        AllData.teams.add(Team("Racing Point", "India", listOf(), AllData.managers[0]))
+        val manager = Manager("manager1", "manager", "Иван", "Иванов", null)
+        val firstRacer = Racer("first", "racer", "Льюис", "Хэмилтон", "Великобритания", Date())
+        val secondRacer = Racer("second", "racer", "Валттери", "Боттас", "Финляндия", Date())
+        AllData.users.add(manager)
+        AllData.users.add(firstRacer)
+        AllData.users.add(secondRacer)
+        AllData.teams.add(Team("Мерседес", "Германия", listOf(firstRacer, secondRacer), manager))
+        manager.setTeam(AllData.teams[0])
         AllData.tournaments.add(
             Tournament(
                 "Season 2019",
-                TournamentType.FORMULA2,
+                TournamentType.FORMULA1,
                 TournamentState.BEGIN
             )
         )
