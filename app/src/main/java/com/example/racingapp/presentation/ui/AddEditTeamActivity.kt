@@ -10,6 +10,7 @@ import com.example.racingapp.R
 import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.user.Manager
 import com.example.racingapp.domain.entity.user.Racer
+import com.example.racingapp.domain.entity.user.TeamRole
 import kotlinx.android.synthetic.main.activity_add_edit_team.*
 
 class AddEditTeamActivity : AppCompatActivity() {
@@ -39,15 +40,23 @@ class AddEditTeamActivity : AppCompatActivity() {
             val secondRacer = spSecondRacer.selectedItem as Racer
             val manager = spManager.selectedItem as Manager
 
+
             if (team == null) {
                 AllData.teams.add(Team(title, country, listOf(firstRacer, secondRacer), manager))
             }
-            else team.apply {
-                this.title = title
-                this.country = country
-                this.racers = listOf(firstRacer, secondRacer)
-                this.manager = manager
+            else team.update(title, country, listOf(firstRacer, secondRacer), manager)
+
+            firstRacer.apply {
+                updateTeamRole(TeamRole.FIRST)
+                setTeam(team ?: AllData.teams.last())
             }
+
+            secondRacer.apply {
+                updateTeamRole(TeamRole.SECOND)
+                setTeam(team ?: AllData.teams.last())
+            }
+
+            manager.setTeam(team ?: AllData.teams.last())
 
             finish()
         }

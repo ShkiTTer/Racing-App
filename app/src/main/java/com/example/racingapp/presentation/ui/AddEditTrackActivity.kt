@@ -25,13 +25,7 @@ class AddEditTrackActivity : AppCompatActivity() {
             if (track == null) {
                 AllData.tracks.add(Track(title, country, length))
             }
-            else {
-                track.apply {
-                    this.title = title
-                    this.country = country
-                    this.length = length
-                }
-            }
+            else track.update(title, country, length)
 
             finish()
         }

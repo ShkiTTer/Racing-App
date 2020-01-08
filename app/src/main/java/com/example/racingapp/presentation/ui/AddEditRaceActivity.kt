@@ -27,11 +27,9 @@ class AddEditRaceActivity : AppCompatActivity() {
             if (race == null) {
                 AllData.currentTournament?.addRace(Race(title, track, cntLaps))
             }
-            else race.apply {
-                this.title = title
-                this.cntLaps = cntLaps
-                this.track = track
-            }
+            else race.update(title, track, cntLaps)
+
+            finish()
         }
     }
 

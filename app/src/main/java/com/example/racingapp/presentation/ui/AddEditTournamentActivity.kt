@@ -28,11 +28,7 @@ class AddEditTournamentActivity : AppCompatActivity() {
             if (tournament == null) {
                 AllData.tournaments.add(Tournament(title, type, state))
             }
-            else tournament.apply {
-                this.title = title
-                this.type = type
-                this.state = state
-            }
+            else tournament.update(title, type, state)
 
             finish()
         }

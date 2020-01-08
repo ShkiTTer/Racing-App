@@ -5,11 +5,26 @@ import com.example.racingapp.domain.entity.Team
 class Manager(
     login: String,
     password: String,
-    var name: String,
-    var secondName: String,
-    var team: Team? = null,
+    name: String,
+    secondName: String,
+    team: Team? = null,
     override val role: UserRole = UserRole.MANAGER
 ) : User(login, password) {
+
+    private var mName = name
+    private var mSecondName = secondName
+    private var mTeam = team
+
+    val name: String
+        get() = mName
+    val secondName: String
+        get() = mSecondName
+    val team: Team?
+        get() = mTeam
+
+    fun setTeam(team: Team?) {
+        mTeam = team
+    }
 
     override fun toString(): String {
         return "$secondName $name"

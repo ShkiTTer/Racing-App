@@ -3,11 +3,9 @@ package com.example.racingapp.domain.entity.user
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
 abstract class User(
-    var login: String = "",
-    var password: String = "",
-    @PrimaryKey(autoGenerate = true) val userId: Int = 0
+    val login: String,
+    val password: String
 ) {
     abstract val role: UserRole
 }
