@@ -6,8 +6,8 @@ import com.example.racingapp.domain.entity.user.Racer
 data class Team(
     var title: String,
     var country: String,
-    val racers: List<Racer>,
-    var manager: Manager? = null
+    var racers: List<Racer>,
+    var manager: Manager
 )
 {
     override fun toString(): String {

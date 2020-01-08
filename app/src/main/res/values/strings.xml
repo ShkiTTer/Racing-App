@@ -32,4 +32,12 @@
     <string name="length_hint">Протяженность</string>
     <string name="country_hint">Страна</string>
     <string name="btn_new_racer">Новый гонщик</string>
+    <string name="manager_text">Менеджер</string>
+    <string name="second_racer_text">Второй гонщик</string>
+    <string name="first_racer_text">Первый гонщик</string>
+    <string name="btn_new_manager">Новый менеджер</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_surname">Фамилия</string>
+    <string name="hint_birthday">Дата рождения</string>
+    <string name="text_racers">Гонщики</string>
 </resources>

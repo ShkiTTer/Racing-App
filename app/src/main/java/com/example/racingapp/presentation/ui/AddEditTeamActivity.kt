@@ -1,5 +1,6 @@
 package com.example.racingapp.presentation.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.ArrayAdapter
 import com.example.racingapp.AllData
 import com.example.racingapp.R
 import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.user.Manager
 import com.example.racingapp.domain.entity.user.Racer
 import kotlinx.android.synthetic.main.activity_add_edit_team.*
 
@@ -20,35 +22,58 @@ class AddEditTeamActivity : AppCompatActivity() {
 
         fillFields()
 
-        racers.visibility = if (team == null) View.VISIBLE else View.GONE
+        btnNewManager.setOnClickListener {
+            val intent = Intent(this, AddManagerActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnNewRacer.setOnClickListener {
+            val intent = Intent(this, AddRacerActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSave.setOnClickListener {
             val title = etTitle.text.toString()
             val country = etCountry.text.toString()
             val firstRacer = spFirstRacer.selectedItem as Racer
             val secondRacer = spSecondRacer.selectedItem as Racer
+            val manager = spManager.selectedItem as Manager
 
             if (team == null) {
-                AllData.teams.add(Team(title, country, listOf(firstRacer, secondRacer)))
+                AllData.teams.add(Team(title, country, listOf(firstRacer, secondRacer), manager))
             }
             else team.apply {
                 this.title = title
                 this.country = country
+                this.racers = listOf(firstRacer, secondRacer)
+                this.manager = manager
             }
 
             finish()
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        fillFields()
+    }
+
     private fun fillFields() {
+        initSpinners()
+
         team ?: return
 
-        spFirstRacer.adapter = ArrayAdapter(this, R.layout.item_spinner, team.racers)
-        spSecondRacer.adapter = ArrayAdapter(this, R.layout.item_spinner, team.racers)
-        spFirstRacer.setSelection(0)
-        spSecondRacer.setSelection(1)
+        spFirstRacer.setSelection(AllData.racers.indexOf(team.racers[0]))
+        spSecondRacer.setSelection(AllData.racers.indexOf(team.racers[1]))
+        spManager.setSelection(AllData.managers.indexOf(team.manager))
 
         etTitle.setText(team.title)
         etCountry.setText(team.country)
+    }
+
+    private fun initSpinners() {
+        spFirstRacer.adapter = ArrayAdapter(this, R.layout.item_spinner, AllData.racers.filter { it.team == null })
+        spSecondRacer.adapter = ArrayAdapter(this, R.layout.item_spinner, AllData.racers.filter { it.team == null })
+        spManager.adapter = ArrayAdapter(this, R.layout.item_spinner, AllData.managers.filter { it.team == null })
     }
 }

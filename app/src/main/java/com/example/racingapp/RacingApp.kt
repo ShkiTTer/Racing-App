@@ -13,7 +13,6 @@ import com.example.racingapp.domain.entity.user.Manager
 import com.example.racingapp.domain.repository.IDbRepository
 import com.example.racingapp.presentation.viewmodel.LoginViewModel
 import com.example.racingapp.presentation.viewmodel.MainViewModel
-import com.example.racingapp.presentation.viewmodel.RegistrationViewModel
 import com.example.racingapp.presentation.viewmodel.TournamentViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -25,7 +24,6 @@ class RacingApp : Application() {
         single { DbRepository() as IDbRepository }
 
         viewModel { LoginViewModel() }
-        viewModel { RegistrationViewModel() }
         viewModel { MainViewModel() }
         viewModel { TournamentViewModel() }
     }
@@ -39,8 +37,8 @@ class RacingApp : Application() {
         }
 
         AllData.users.add(Administrator("root", "root"))
-        AllData.teams.add(Team("Racing Point", "India", listOf()))
-        AllData.users.add(Manager("manager1", "manager", team = AllData.teams[0]))
+        AllData.users.add(Manager("manager1", "manager", "Иван", "Иванов", null))
+        AllData.teams.add(Team("Racing Point", "India", listOf(), AllData.managers[0]))
         AllData.tournaments.add(
             Tournament(
                 "Season 2019",

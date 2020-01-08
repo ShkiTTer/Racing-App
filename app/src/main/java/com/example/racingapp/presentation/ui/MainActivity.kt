@@ -62,7 +62,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.actionLogout -> finish()
+            R.id.actionLogout -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
             R.id.actionTeams -> {
                 val intent = Intent(this, TeamListActivity::class.java)
                 startActivity(intent)

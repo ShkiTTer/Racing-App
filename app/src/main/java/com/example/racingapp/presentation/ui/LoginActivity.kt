@@ -29,10 +29,6 @@ class LoginActivity : AppCompatActivity() {
             lifecycleOwner = this@LoginActivity
         }
 
-        binding.tvReg.setOnClickListener {
-            createDialog().show()
-        }
-
         binding.btnSignIn.setOnClickListener {
             val login = binding.etLogin.text.toString()
             val password = binding.etPassword.text.toString()
@@ -46,28 +42,5 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-    }
-
-    private fun createDialog(): AlertDialog {
-        val view = layoutInflater.inflate(R.layout.dialog_select_role, null, false)
-
-        view.apply {
-            spRole.adapter = ArrayAdapter(
-                this@LoginActivity,
-                R.layout.item_spinner,
-                loginViewModel.userRoles
-            )
-        }
-
-        return AlertDialog.Builder(this)
-            .setView(view)
-            .setTitle(R.string.dialog_select_role_title)
-            .setNegativeButton(R.string.dialog_negative_btn, null)
-            .setPositiveButton(R.string.dialog_positive_btn) { dialog, which ->
-                val intent = Intent(this, RegistrationActivity::class.java).apply {
-                    putExtra(Constants.EXTRA_ROLE, view.spRole.selectedItem as UserRole)
-                }
-                startActivity(intent)
-            }.create()
     }
 }
