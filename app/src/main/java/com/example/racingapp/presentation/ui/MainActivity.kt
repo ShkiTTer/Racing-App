@@ -75,6 +75,10 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, TrackListActivity::class.java)
                 startActivity(intent)
             }
+            R.id.actionRequests -> {
+                val intent = Intent(this, RequestListActivity::class.java)
+                startActivity(intent)
+            }
             else -> return super.onOptionsItemSelected(item)
         }
 

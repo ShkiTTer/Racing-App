@@ -1,6 +1,8 @@
 package com.example.racingapp.domain.entity.user
 
 import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.request.Request
+import com.example.racingapp.domain.entity.tournament.Tournament
 
 class Manager(
     login: String,
@@ -24,6 +26,11 @@ class Manager(
 
     fun setTeam(team: Team?) {
         mTeam = team
+    }
+
+    fun createRequest(tournament: Tournament) {
+        val request = Request(team!!, tournament)
+        team?.addRequest(request)
     }
 
     override fun toString(): String {

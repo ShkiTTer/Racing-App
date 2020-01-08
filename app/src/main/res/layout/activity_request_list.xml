@@ -2,21 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.ui.TeamListActivity">
+    tools:context=".presentation.ui.RequestListActivity">
 
     <data>
         <import type="com.example.racingapp.domain.entity.user.UserRole" />
         <import type="com.example.racingapp.domain.entity.user.User" />
-        <import type="com.example.racingapp.domain.entity.tournament.Tournament"/>
         <import type="android.view.View" />
 
         <variable
             name="user"
             type="User" />
-
-        <variable
-            name="tournament"
-            type="Tournament" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +19,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTeams"
+            android:id="@+id/rvRequests"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,6 +41,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="36dp"
             app:srcCompat="@drawable/ic_add"
-            android:visibility="@{user.role == UserRole.ADMINISTRATOR &amp;&amp; tournament == null ? View.VISIBLE : View.GONE}"/>
+            android:visibility="@{user.role == UserRole.MANAGER ? View.VISIBLE : View.GONE}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

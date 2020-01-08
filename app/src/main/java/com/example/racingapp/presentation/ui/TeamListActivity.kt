@@ -24,6 +24,7 @@ class TeamListActivity : AppCompatActivity() {
         binding.apply {
             lifecycleOwner = this@TeamListActivity
             user = AllData.currentUser
+            tournament = AllData.currentTournament
         }
 
         binding.fab.setOnClickListener {

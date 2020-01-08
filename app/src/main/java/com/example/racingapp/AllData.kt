@@ -3,6 +3,7 @@ package com.example.racingapp
 import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.Track
+import com.example.racingapp.domain.entity.request.Request
 import com.example.racingapp.domain.entity.tournament.Tournament
 import com.example.racingapp.domain.entity.user.Manager
 import com.example.racingapp.domain.entity.user.Racer
@@ -27,4 +28,9 @@ object AllData {
 
     val managers: List<Manager>
         get() = users.filter { it.role == UserRole.MANAGER }.map { it as Manager }
+
+    val myTeam: Team?
+        get() = if (currentUser?.role == UserRole.MANAGER) (currentUser as Manager).team else null
+
+    var currentRequest: Request? = null
 }

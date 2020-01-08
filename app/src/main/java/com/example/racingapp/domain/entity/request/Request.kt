@@ -6,7 +6,7 @@ import com.example.racingapp.domain.entity.tournament.Tournament
 class Request(
     val team: Team,
     val tournament: Tournament,
-    state: RequestState
+    state: RequestState = RequestState.FILED
 ) {
     private var mState = state
 

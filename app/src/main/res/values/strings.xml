@@ -40,4 +40,10 @@
     <string name="hint_surname">Фамилия</string>
     <string name="hint_birthday">Дата рождения</string>
     <string name="text_racers">Гонщики</string>
+    <string name="request_status_filed">Подана</string>
+    <string name="request_status_approved">Одобрена</string>
+    <string name="request_status_rejected">Отклонена</string>
+    <string name="btn_approve">Одобрить</string>
+    <string name="btn_cancel">Отклонить</string>
+    <string name="tournament_text">Чемпионат</string>
 </resources>
