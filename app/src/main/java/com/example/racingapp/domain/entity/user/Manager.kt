@@ -1,6 +1,5 @@
 package com.example.racingapp.domain.entity.user
 
-import com.example.racingapp.AllData
 import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.request.Request
 import com.example.racingapp.domain.entity.tournament.Tournament
@@ -35,6 +34,6 @@ class Manager(
     }
 
     override fun toString(): String {
-        return "$secondName $name"
+        return "${this.name} ${this.secondName}"
     }
 }

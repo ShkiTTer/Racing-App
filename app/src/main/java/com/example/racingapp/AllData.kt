@@ -33,4 +33,5 @@ object AllData {
         get() = if (currentUser?.role == UserRole.MANAGER) (currentUser as Manager).team else null
 
     var currentRequest: Request? = null
+    var selectedUser: User? = null
 }

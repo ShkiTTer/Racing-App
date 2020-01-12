@@ -3,14 +3,12 @@ package com.example.racingapp.presentation.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import com.example.racingapp.AllData
 import com.example.racingapp.R
 import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.user.Manager
 import com.example.racingapp.domain.entity.user.Racer
-import com.example.racingapp.domain.entity.user.TeamRole
 import kotlinx.android.synthetic.main.activity_add_edit_team.*
 
 class AddEditTeamActivity : AppCompatActivity() {
@@ -47,12 +45,10 @@ class AddEditTeamActivity : AppCompatActivity() {
             else team.update(title, country, listOf(firstRacer, secondRacer), manager)
 
             firstRacer.apply {
-                updateTeamRole(TeamRole.FIRST)
                 setTeam(team ?: AllData.teams.last())
             }
 
             secondRacer.apply {
-                updateTeamRole(TeamRole.SECOND)
                 setTeam(team ?: AllData.teams.last())
             }
 

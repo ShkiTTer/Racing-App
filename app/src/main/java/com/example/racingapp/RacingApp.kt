@@ -66,7 +66,7 @@ class RacingApp : Application() {
 
         AllData.tournaments.add(
             Tournament(
-                "Season 2019",
+                "Season 2018",
                 TournamentType.FORMULA1,
                 TournamentState.BEGIN
             )

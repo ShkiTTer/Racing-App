@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.ui.ProfileActivity">
+
+    <data>
+        <import type="com.example.racingapp.domain.entity.user.User"/>
+        <import type="com.example.racingapp.domain.entity.user.UserRole"/>
+        <import type="com.example.racingapp.domain.entity.user.Manager"/>
+        <import type="com.example.racingapp.domain.entity.user.Racer"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="user"
+            type="User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{user.toString()}"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Полное имя" />
+
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{user.role == UserRole.MANAGER ? @string/manager_text : @string/racer_text}"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Роль" />
+
+
+        <TextView
+            android:id="@+id/tvTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{user.role == UserRole.MANAGER ? ((Manager)user).team.title : ((Racer)user).team.title}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Команда" />
+
+        <TextView
+            android:id="@+id/tvTeam3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/hint_birthday"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{user.role == UserRole.RACER ? ((Racer)user).birthday.toString() : ``}"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeam3"
+            tools:text="12.12.2000" />
+
+        <TextView
+            android:id="@+id/tvCntRace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{user.role == UserRole.RACER ? Integer.toString(((Racer)user).cntRace) : ``}"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvTeam5"
+            app:layout_constraintStart_toStartOf="@+id/tvTeam5"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeam5"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/tvCntWin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{user.role == UserRole.RACER ? Integer.toString(((Racer)user).cntWin) : ``}"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvTeam6"
+            app:layout_constraintStart_toStartOf="@+id/tvTeam6"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeam5"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/tvTeam5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/cnt_race_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvTeam6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+        <TextView
+            android:id="@+id/tvTeam6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/cnt_win_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvTeam5"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvTeam5,tvTeam6,tvCntRace,tvTeam3,tvCntWin,tvDate"
+            android:visibility="@{user.role == UserRole.RACER ? View.VISIBLE : View.GONE}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

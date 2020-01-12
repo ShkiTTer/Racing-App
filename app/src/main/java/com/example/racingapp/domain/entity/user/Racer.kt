@@ -13,7 +13,6 @@ class Racer(
     cntRace: Int = 0,
     cntWin: Int = 0,
     team: Team? = null,
-    teamRole: TeamRole = TeamRole.FIRST,
     override val role: UserRole = UserRole.RACER
 ) : User(login, password) {
 
@@ -24,7 +23,6 @@ class Racer(
     private var mCntRace = cntRace
     private var mCntWin = cntWin
     private var mTeam = team
-    private var mTeamRole = teamRole
 
     val name: String
         get() = mName
@@ -40,12 +38,6 @@ class Racer(
         get() = mCntWin
     val team: Team?
         get() = mTeam
-    val teamRole: TeamRole
-        get() = mTeamRole
-
-    fun updateTeamRole(teamRole: TeamRole) {
-        mTeamRole = teamRole
-    }
 
     fun setTeam(team: Team?) {
         mTeam = team
