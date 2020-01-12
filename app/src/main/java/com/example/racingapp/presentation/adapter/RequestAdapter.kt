@@ -25,6 +25,12 @@ class RequestAdapter : BaseAdapter<Request, RequestAdapter.RequestViewHolder>() 
         private val title = v.tvTitle
         private val status = v.tvStatus
 
+        init {
+            v.setOnClickListener {
+                onItemClickListener?.onItemClick(adapterPosition)
+            }
+        }
+
         override fun bind(item: Request) {
             title.text = "${item.team} - ${item.tournament}"
             status.setText(

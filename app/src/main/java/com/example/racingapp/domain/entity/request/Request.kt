@@ -17,7 +17,7 @@ class Request(
         mState = RequestState.REJECTED
     }
 
-    fun appove() {
+    fun approve() {
         mState = RequestState.APPROVED
 
         tournament.addTeam(team)

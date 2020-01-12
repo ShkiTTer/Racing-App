@@ -1,5 +1,6 @@
 package com.example.racingapp.domain.entity.user
 
+import com.example.racingapp.AllData
 import com.example.racingapp.domain.entity.Team
 import com.example.racingapp.domain.entity.request.Request
 import com.example.racingapp.domain.entity.tournament.Tournament

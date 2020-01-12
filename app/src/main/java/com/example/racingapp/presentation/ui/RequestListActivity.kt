@@ -41,7 +41,7 @@ class RequestListActivity : AppCompatActivity() {
         data.clear()
         binding.rvRequests.adapter = adapter
 
-        if (AllData.myTeam == null) {
+        if (AllData.myTeam != null) {
             data.addAll(AllData.myTeam!!.requests)
         } else {
             AllData.teams.forEach {

@@ -90,7 +90,6 @@ class MainActivity : AppCompatActivity() {
         adapter.setItems(AllData.tournaments)
         adapter.setListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
-                println("Click")
                 val intent = Intent(this@MainActivity, TournamentActivity::class.java)
                 AllData.currentTournament = AllData.tournaments[position]
                 startActivity(intent)

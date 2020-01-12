@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.racingapp.AllData
 import com.example.racingapp.R
 import com.example.racingapp.databinding.ActivityRequestBinding
+import com.example.racingapp.domain.entity.user.Administrator
 
 class RequestActivity : AppCompatActivity() {
 
@@ -19,6 +20,16 @@ class RequestActivity : AppCompatActivity() {
             lifecycleOwner = this@RequestActivity
             user = AllData.currentUser
             request = AllData.currentRequest
+        }
+
+        binding.btnApprove.setOnClickListener {
+            (AllData.currentUser as Administrator).aproveRequest(AllData.currentRequest!!)
+            finish()
+        }
+
+        binding.btnCancel.setOnClickListener {
+            (AllData.currentUser as Administrator).cancelRequest(AllData.currentRequest!!)
+            finish()
         }
     }
 

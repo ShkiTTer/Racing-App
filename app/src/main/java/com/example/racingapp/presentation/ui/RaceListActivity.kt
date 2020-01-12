@@ -27,6 +27,10 @@ class RaceListActivity : AppCompatActivity() {
             val intent = Intent(this, AddEditRaceActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         setupList()
     }

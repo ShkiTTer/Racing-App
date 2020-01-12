@@ -92,4 +92,8 @@ class Tournament(
     fun addTeam(team: Team) {
         mTeams.add(team)
     }
+
+    override fun toString(): String {
+        return title
+    }
 }
