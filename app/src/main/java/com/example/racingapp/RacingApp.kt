@@ -40,13 +40,30 @@ class RacingApp : Application() {
 
         AllData.users.add(Administrator("root", "root"))
         val manager = Manager("manager1", "manager", "Иван", "Иванов", null)
+        val manager2 = Manager("manager2", "manager", "Иван", "Иванов", null)
         val firstRacer = Racer("first", "racer", "Льюис", "Хэмилтон", "Великобритания", Date())
         val secondRacer = Racer("second", "racer", "Валттери", "Боттас", "Финляндия", Date())
+
+        val firstRacer2 = Racer("first2", "racer", "Макс", "Ферстаппен", "Голландия", Date())
+        val secondRacer2 = Racer("second2", "racer", "Александр", "Албон", "Тайланд", Date())
+
         AllData.users.add(manager)
         AllData.users.add(firstRacer)
         AllData.users.add(secondRacer)
+
+        AllData.users.add(manager2)
+        AllData.users.add(firstRacer2)
+        AllData.users.add(secondRacer2)
         AllData.teams.add(Team("Мерседес", "Германия", listOf(firstRacer, secondRacer), manager))
+        AllData.teams.add(Team("Ред булл", "Австрия", listOf(firstRacer2, secondRacer2), manager2))
         manager.setTeam(AllData.teams[0])
+        firstRacer.setTeam(AllData.teams[0])
+        secondRacer.setTeam(AllData.teams[0])
+
+        manager2.setTeam(AllData.teams[1])
+        firstRacer2.setTeam(AllData.teams[1])
+        secondRacer2.setTeam(AllData.teams[1])
+
         AllData.tournaments.add(
             Tournament(
                 "Season 2019",
@@ -55,6 +72,7 @@ class RacingApp : Application() {
             )
         )
         AllData.tournaments[0].addTeam(AllData.teams[0])
+        AllData.tournaments[0].addTeam(AllData.teams[1])
         AllData.tracks.add(Track("Нюрбургринг", "Германия", 2567))
         AllData.tournaments[0].addRace(Race("Гран-при Германии", AllData.tracks[0], 58))
     }

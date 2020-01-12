@@ -2,6 +2,8 @@ package com.example.racingapp.domain.entity.tournament
 
 import com.example.racingapp.domain.entity.Race
 import com.example.racingapp.domain.entity.Team
+import com.example.racingapp.domain.entity.result.RacerResult
+import com.example.racingapp.domain.entity.result.TeamResult
 import com.example.racingapp.domain.entity.user.Racer
 
 class Tournament(
@@ -26,6 +28,46 @@ class Tournament(
         get() = mTeams
     val races: List<Race>
         get() = mRaces
+    val racerResults: List<RacerResult>
+        get() {
+            val tempResult = mutableMapOf<Racer, Int>()
+            val result = mutableListOf<RacerResult>()
+
+            races.forEach {
+                it.racerResults.forEach { r ->
+                    val currentResult = tempResult[r.subject]
+
+                    if (currentResult == null) tempResult[r.subject] = r.points
+                    else tempResult[r.subject] = r.points + currentResult
+                }
+            }
+
+            tempResult.toList().sortedByDescending { it.second }.forEachIndexed { index, pair ->
+                result.add(RacerResult(pair.first, index + 1, pair.second))
+            }
+
+            return result
+        }
+    val teamResults: List<TeamResult>
+        get() {
+            val tempResult = mutableMapOf<Team, Int>()
+            val result = mutableListOf<TeamResult>()
+
+            races.forEach {
+                it.teamResults.forEach { r ->
+                    val currentResult = tempResult[r.subject]
+
+                    if (currentResult == null) tempResult[r.subject] = r.points
+                    else tempResult[r.subject] = r.points + currentResult
+                }
+            }
+
+            tempResult.toList().sortedByDescending { it.second }.forEachIndexed { index, pair ->
+                result.add(TeamResult(pair.first, index + 1, pair.second))
+            }
+
+            return result
+        }
 
     fun update(title: String, type: TournamentType, state: TournamentState) {
         mTitle = title

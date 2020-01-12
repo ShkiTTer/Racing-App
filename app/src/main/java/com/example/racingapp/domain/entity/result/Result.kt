@@ -1,7 +1,15 @@
 package com.example.racingapp.domain.entity.result
 
-class Result<T>(
+abstract class Result<T>(
     val subject: T,
-    val place: Int,
+    place: Int,
+    points: Int
+) {
+    protected var mPoints = points
+    protected var mPlace = place
+
     val points: Int
-)
+        get() = mPoints
+    val place: Int
+        get() = mPlace
+}

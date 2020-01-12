@@ -1,15 +1,14 @@
 package com.example.racingapp.domain.entity
 
-import com.example.racingapp.domain.entity.user.Racer
-import com.example.racingapp.domain.entity.result.Result
+import com.example.racingapp.domain.entity.result.RacerResult
+import com.example.racingapp.domain.entity.result.TeamResult
 
 class Race(
     title: String,
     track: Track,
     cntLaps: Int
 ) {
-    private val mRacerResults = mutableListOf<Result<Racer>>()
-    private val mTeamResults = mutableListOf<Result<Team>>()
+    private val mRacerResults = mutableListOf<RacerResult>()
 
     private var mTitle = title
     private var mTrack = track
@@ -21,10 +20,25 @@ class Race(
         get() = mTrack
     val cntLaps: Int
         get() = mCntLaps
-    val racerResults: List<Result<Racer>>
-        get() = mRacerResults
-    val teamResults: List<Result<Team>>
-        get() = mTeamResults
+    val racerResults: List<RacerResult>
+        get() = mRacerResults.sortedBy { it.place }
+    val teamResults: List<TeamResult>
+        get() {
+            val results = mutableListOf<TeamResult>()
+
+            racerResults.forEach {
+                val result = results.find { r -> r.subject == it.subject.team }
+                if (result == null)
+                    results.add(TeamResult(it.subject.team!!, 0, it.points))
+                else result.addPoints(it.points)
+            }
+
+            results.sortedByDescending { it.points }.forEachIndexed { index, teamResult ->
+                teamResult.updatePlace(index + 1)
+            }
+
+            return results
+        }
 
     fun update(title: String, track: Track, cntLaps: Int) {
         mTitle = title
@@ -32,11 +46,7 @@ class Race(
         mCntLaps = cntLaps
     }
 
-    fun addRacerResult(racerResult: Result<Racer>) {
+    fun addRacerResult(racerResult: RacerResult) {
         mRacerResults.add(racerResult)
-    }
-
-    fun addTeamResult(teamResult: Result<Team>) {
-        mTeamResults.add(teamResult)
     }
 }

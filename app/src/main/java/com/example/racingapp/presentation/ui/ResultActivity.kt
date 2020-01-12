@@ -2,7 +2,6 @@ package com.example.racingapp.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.racingapp.AllData
@@ -40,7 +39,7 @@ class ResultActivity : AppCompatActivity() {
         binding.rvResult.adapter = adapter
 
         if (AllData.currentRace == null) {
-
+            adapter.setItems(if (AllData.racerResult) AllData.currentTournament!!.racerResults else AllData.currentTournament!!.teamResults)
         } else {
             adapter.setItems(if (AllData.racerResult) AllData.currentRace!!.racerResults else AllData.currentRace!!.teamResults)
         }

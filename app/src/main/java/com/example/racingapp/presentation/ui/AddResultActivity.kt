@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.racingapp.AllData
 import com.example.racingapp.R
+import com.example.racingapp.domain.entity.result.RacerResult
 import com.example.racingapp.domain.entity.result.Result
 import com.example.racingapp.domain.entity.user.Racer
 import kotlinx.android.synthetic.main.activity_add_result.*
@@ -27,7 +28,7 @@ class AddResultActivity : AppCompatActivity() {
             val place = etPlace.text.toString().toInt()
             val points = etPoints.text.toString().toInt()
 
-            AllData.currentRace?.addRacerResult(Result(racer, place, points))
+            AllData.currentRace?.addRacerResult(RacerResult(racer, place, points))
 
             finish()
         }
